@@ -60,14 +60,14 @@ kramdown:
 # disqus_username: qiubaiying
 
 # Gitalk
-#gitalk:
-#  enable: true    #是否开启Gitalk评论
-#  clientID: f2c84e7629bb1446c1a4   #生成的clientID
-#  clientSecret: ca6d6139d1e1b8c43f8b2e19492ddcac8b322d0d  #同上
-#  repo: erstarry.github.io    #仓库名称
-#  owner: erstarry    #github用户名
-#  admin: erstarry
-#  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: e44200b99c9f654a33c0   #生成的clientID
+  clientSecret: 063bf7056c1907280aacaee44f22b8f4cd70a03b  #同上
+  repo: erstarry.github.io    #仓库名称
+  owner: erstarry    #github用户名
+  admin: erstarry
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 # 统计
@@ -78,7 +78,7 @@ kramdown:
 
 # Google Analytics
 ga_track_id: 'UA-113860059-1'            # Format: UA-xxxxxx-xx
-#ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
