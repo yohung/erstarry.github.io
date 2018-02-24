@@ -294,14 +294,16 @@ client.close()
 1. socket模块不能实现多并发    
 2. socketserver是对socket的再封装
 创建一个socketserver分以下几步：  
-    First, you must create a request handler（处理类） class by subclassing the BaseRequestHandler class and overriding（覆盖） its handle() method; this method will process incoming requests.   　　
-    你必须自己创建一个请求处理类，并且这个类要继承BaseRequestHandler,并且还有重写父亲类里的handle()【跟客户端所有的交互都是在handle（）里完成的】 
-    Second, you must instantiate（实例化） one of the server classes, passing it the server’s address and the request handler class.  
-    你必须实例化TCPServer ，并且传递server ip 和 你上面创建的请求处理类 给这个TCPServer  
-    Then call the handle_request() or serve_forever() method of the server object to process one or many requests.  
-    server.handle_request() #只处理一个请求  
-    server.serve_forever() #处理多个一个请求，永远执行  
+    First, you must create a request handler（处理类） class by subclassing the BaseRequestHandler class and overriding（覆盖） its handle() method; this method will process incoming requests.     　　
+    你必须自己创建一个请求处理类，并且这个类要继承BaseRequestHandler,并且还有重写父亲类里的handle()【跟客户端所有的交互都是在handle（）里完成的】  
+    Second, you must instantiate（实例化） one of the server classes, passing it the server’s address and the request handler class.     
+    你必须实例化TCPServer ，并且传递server ip 和 你上面创建的请求处理类 给这个TCPServer      
+    Then call the handle_request() or serve_forever() method of the server object to process one or many requests.    
+    server.handle_request() #只处理一个请求    
+    server.serve_forever() #处理多个一个请求，永远执行   
+    
     Finally, call server_close() to close the socket.  
+    
 socketserve的基本使用
 
 Linux 服务端代码
