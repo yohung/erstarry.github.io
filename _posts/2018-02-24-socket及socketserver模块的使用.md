@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      网络编程
+title:      python---网络编程
 subtitle:   socket和socketserver模块介绍
 date:       2018-2-24
 author:     CRC
@@ -84,7 +84,7 @@ socket.SOCK_SEQPACKET | 废弃了
     
 # 3、socket实例
   前面讲了那么多，到底怎么用呢？
-* socketserver.py
+socketserver.py
 ```
 import socket
 
@@ -103,7 +103,7 @@ print("收到消息:",data)
 server.close()
 
 ```
-* socketclient.py
+socketclient.py
 ```
 import socket
 
@@ -119,8 +119,9 @@ SocketClient.py
 ```
 上面的代码的有一个问题， 就是SocketServer.py运行起来后， 接收了一次客户端的data就退出了。。。， 但实际场景中，一个连接建立起来后，可能要进行多次往返的通信。
 ![](https://github.com/erstarry/erstarry.github.io/blob/master/img/socket%E9%80%9A%E4%BF%A1.png)
+
 多次的数据交互怎么实现？
-* socketserver端支持交互
+socketserver端支持交互
 ```
 import socket
 
@@ -141,7 +142,7 @@ while True:
 server.close()
 
 ```
-* socketclient端支持交互
+socketclient端支持交互
 ```
 import socket
 
@@ -199,9 +200,9 @@ server.close()
 
 ```
 # 4、socket实现多连接处理
-	上面的代码虽然实现了服务端与客户端的多次交互，但是你会发现，如果客户端断开了， 服务器端也会跟着立刻断开，因为服务器只有一个while 循环，客户端一断开，服务端收不到数据 ，就会直接break跳出循环，然后程序就退出了，这显然不是我们想要的结果 ，我们想要的是，客户端如果断开了，我们这个服务端还可以为下一个客户端服务，在这里如何实现呢？
-- `conn,addr = server.accept()` 接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
-	我们知道上面这句话负责等待并接收新连接，对于上面那个程序，其实在while break之后，只要让程序再次回到上面这句代码这，就可以让服务端继续接下一个客户啦。 
+  上面的代码虽然实现了服务端与客户端的多次交互，但是你会发现，如果客户端断开了， 服务器端也会跟着立刻断开，因为服务器只有一个while 循环，客户端一断开，服务端收不到数据 ，就会直接break跳出循环，然后程序就退出了，这显然不是我们想要的结果 ，我们想要的是，客户端如果断开了，我们这个服务端还可以为下一个客户端服务，在这里如何实现呢？
+`conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...`
+>  我们知道上面这句话负责等待并接收新连接，对于上面那个程序，其实在while break之后，只要让程序再次回到上面这句代码这，就可以让服务端继续接下一个客户啦。 
 ```
 import socket
  
@@ -226,7 +227,7 @@ while True: #第一层loop
 server.close()
 ```
 # 5、通过socket实现简单的ssh
-	光只是简单的发消息、收消息没意思，干点正事，可以做一个极简版的ssh，就是客户端连接上服务器后，让服务器执行命令，并返回结果给客户端。
+  光只是简单的发消息、收消息没意思，干点正事，可以做一个极简版的ssh，就是客户端连接上服务器后，让服务器执行命令，并返回结果给客户端。
 socket ssh服务端
 ```
 #!/usr/bin/env python
@@ -288,10 +289,11 @@ while True:
 client.close()
 ```
 ![https://github.com/erstarry/erstarry.github.io/blob/master/img/socket%20ssh.png]
+
 # 6、socketserver模块
-The socketserver module simplifies the task of writing network servers.
-1、socket模块不能实现多并发    
-2、socketserver是对socket的再封装
+  The socketserver module simplifies the task of writing network servers.
+1. socket模块不能实现多并发    
+2. socketserver是对socket的再封装
 创建一个socketserver分以下几步：
     First, you must create a request handler（处理类） class by subclassing the BaseRequestHandler class and overriding（覆盖） its handle() method; this method will process incoming requests. 　　
     你必须自己创建一个请求处理类，并且这个类要继承BaseRequestHandler,并且还有重写父亲类里的handle()【跟客户端所有的交互都是在handle（）里完成的】
@@ -307,12 +309,44 @@ The socketserver module simplifies the task of writing network servers.
 socketserve的基本使用
 Linux 服务端代码
 ```
+#!/usr/bin/env python
+# coding=utf-8
+import socketserver
+class MyTCPHandler(socketserver.BaseRequestHandler):
+    def handle(self):
+        while True:
+            self.data = self.request.recv(1024).strip()
+            print("{} wrote".format(self.client_address[0]))
+            print(self.data)
+            if not self.data:   #客户端断开了
+                print(self.client_address,"断开了")
+                break
+            self.request.send(self.data.upper())
+if __name__ == "__main__":
+    HOST,PORT = "0.0.0.0",9999
+    server = socketserver.TCPServer((HOST,PORT),MyTCPHandler)
+    server.serve_forever()
+    
+    server_close()
 
 ```
 linux 客户端代码
 ```
+#!/usr/bin/env python
+# coding=utf-8
+import socket
+client = socket.socket()
+client.connect(('192.168.213.144',9999))
+while True:
+    msg = input(">>:").strip()
+    if len(msg) == 0:continue
+    client.send(msg.encode("utf-8"))
+    data = client.recv(1024)
+    print("recv:",data.decode())
+client.close()
+
 ```
 上面这个例子你会发现，依然不能实现多并发，哈哈，在server端做一下更改就可以了
 把
-- `server = socketserver.TCPServer((HOST, PORT), MyTCPHandler)` 改成
-- `server = socketserver.ThreadingTCPServer((HOST, PORT), MyTCPHandler)`
+`server = socketserver.TCPServer((HOST, PORT), MyTCPHandler)` 改成
+`server = socketserver.ThreadingTCPServer((HOST, PORT), MyTCPHandler)`
