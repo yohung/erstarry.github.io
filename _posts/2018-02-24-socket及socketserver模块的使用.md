@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      ÍøÂç±à³Ì
-subtitle:   socketºÍsocketserverÄ£¿é½éÉÜ
+title:      ç½‘ç»œç¼–ç¨‹
+subtitle:   socketå’Œsocketserveræ¨¡å—ä»‹ç»
 date:       2018-2-24
 author:     CRC
 header-img: img/post-bg-universe.jpg
@@ -10,16 +10,16 @@ tags:
     - Python Socket
 ---
 
-#1¡¢socket½éÉÜ
-#¸ÅÄî
-socketÍ¨³£Ò²³Æ×÷"Ì×½Ó×Ö"£¬ÊÇÒ»ÖÖ¼ÆËã»úÍøÂçÊı¾İ½á¹¹£¬Ïàµ±ÓÚÒ»¸öÍ¨ĞÅ¶Ëµã¡£ÔÚÈÎºÎÀàĞÍµÄÍ¨ĞÅ¿ªÊ¼Ö®Ç°£¬ÍøÂçÓ¦ÓÃ³ÌĞò±ØĞë´´½¨Ì×½Ó×Ö¡£¿ÉÒÔ½«ËüÃÇ±È×÷µç»°²å¿×£¬Ã»ÓĞËü½«ÎŞ·¨½øĞĞÍ¨ĞÅ¡£
-Èç¹ûÒ»¸öÌ×½Ó×ÖÏñÒ»¸öµç»°²å¿×--ÔÊĞíÍ¨ĞÅµÄÒ»Ğ©»ù´¡ÉèÊ©£¬ÄÇÃ´Ö÷»úÃûºÍ¶Ë¿ÚºÅ¾ÍÏñÊÇÇøºÅºÍµç»°ºÅÂëµÄ×éºÏ¡£
+#1ã€socketä»‹ç»
+#æ¦‚å¿µ
+socketé€šå¸¸ä¹Ÿç§°ä½œ"å¥—æ¥å­—"ï¼Œæ˜¯ä¸€ç§è®¡ç®—æœºç½‘ç»œæ•°æ®ç»“æ„ï¼Œç›¸å½“äºä¸€ä¸ªé€šä¿¡ç«¯ç‚¹ã€‚åœ¨ä»»ä½•ç±»å‹çš„é€šä¿¡å¼€å§‹ä¹‹å‰ï¼Œç½‘ç»œåº”ç”¨ç¨‹åºå¿…é¡»åˆ›å»ºå¥—æ¥å­—ã€‚å¯ä»¥å°†å®ƒä»¬æ¯”ä½œç”µè¯æ’å­”ï¼Œæ²¡æœ‰å®ƒå°†æ— æ³•è¿›è¡Œé€šä¿¡ã€‚
+å¦‚æœä¸€ä¸ªå¥—æ¥å­—åƒä¸€ä¸ªç”µè¯æ’å­”--å…è®¸é€šä¿¡çš„ä¸€äº›åŸºç¡€è®¾æ–½ï¼Œé‚£ä¹ˆä¸»æœºåå’Œç«¯å£å·å°±åƒæ˜¯åŒºå·å’Œç”µè¯å·ç çš„ç»„åˆã€‚
 ```
-Socket Families(µØÖ·´Ø)
+Socket Families(åœ°å€ç°‡)
 
-socket.AF_UNIX unix±¾»ú½ø³Ì¼äÍ¨ĞÅ 
+socket.AF_UNIX unixæœ¬æœºè¿›ç¨‹é—´é€šä¿¡ 
 
-socket.AF_INET¡¡IPV4¡¡
+socket.AF_INETã€€IPV4ã€€
 
 socket.AF_INET6  IPV6
 ```
@@ -30,110 +30,110 @@ socket.SOCK_STREAM  #for tcp
 
 socket.SOCK_DGRAM   #for udp 
 
-socket.SOCK_RAW     #Ô­Ê¼Ì×½Ó×Ö£¬ÆÕÍ¨µÄÌ×½Ó×ÖÎŞ·¨´¦ÀíICMP¡¢IGMPµÈÍøÂç±¨ÎÄ£¬¶øSOCK_RAW¿ÉÒÔ£»Æä´Î£¬SOCK_RAWÒ²¿ÉÒÔ´¦ÀíÌØÊâµÄIPv4±¨ÎÄ£»´ËÍâ£¬ÀûÓÃÔ­Ê¼Ì×½Ó×Ö£¬¿ÉÒÔÍ¨¹ıIP_HDRINCLÌ×½Ó×ÖÑ¡ÏîÓÉÓÃ»§¹¹ÔìIPÍ·¡£
+socket.SOCK_RAW     #åŸå§‹å¥—æ¥å­—ï¼Œæ™®é€šçš„å¥—æ¥å­—æ— æ³•å¤„ç†ICMPã€IGMPç­‰ç½‘ç»œæŠ¥æ–‡ï¼Œè€ŒSOCK_RAWå¯ä»¥ï¼›å…¶æ¬¡ï¼ŒSOCK_RAWä¹Ÿå¯ä»¥å¤„ç†ç‰¹æ®Šçš„IPv4æŠ¥æ–‡ï¼›æ­¤å¤–ï¼Œåˆ©ç”¨åŸå§‹å¥—æ¥å­—ï¼Œå¯ä»¥é€šè¿‡IP_HDRINCLå¥—æ¥å­—é€‰é¡¹ç”±ç”¨æˆ·æ„é€ IPå¤´ã€‚
 
-socket.SOCK_RDM  #ÊÇÒ»ÖÖ¿É¿¿µÄUDPĞÎÊ½£¬¼´±£Ö¤½»¸¶Êı¾İ±¨µ«²»±£Ö¤Ë³Ğò¡£SOCK_RAMÓÃÀ´Ìá¹©¶ÔÔ­Ê¼Ğ­ÒéµÄµÍ¼¶·ÃÎÊ£¬ÔÚĞèÒªÖ´ĞĞÄ³Ğ©ÌØÊâ²Ù×÷Ê±Ê¹ÓÃ£¬Èç·¢ËÍICMP±¨ÎÄ¡£SOCK_RAMÍ¨³£½öÏŞÓÚ¸ß¼¶ÓÃ»§»ò¹ÜÀíÔ±ÔËĞĞµÄ³ÌĞòÊ¹ÓÃ¡£
+socket.SOCK_RDM  #æ˜¯ä¸€ç§å¯é çš„UDPå½¢å¼ï¼Œå³ä¿è¯äº¤ä»˜æ•°æ®æŠ¥ä½†ä¸ä¿è¯é¡ºåºã€‚SOCK_RAMç”¨æ¥æä¾›å¯¹åŸå§‹åè®®çš„ä½çº§è®¿é—®ï¼Œåœ¨éœ€è¦æ‰§è¡ŒæŸäº›ç‰¹æ®Šæ“ä½œæ—¶ä½¿ç”¨ï¼Œå¦‚å‘é€ICMPæŠ¥æ–‡ã€‚SOCK_RAMé€šå¸¸ä»…é™äºé«˜çº§ç”¨æˆ·æˆ–ç®¡ç†å‘˜è¿è¡Œçš„ç¨‹åºä½¿ç”¨ã€‚
 
-socket.SOCK_SEQPACKET #·ÏÆúÁË
+socket.SOCK_SEQPACKET #åºŸå¼ƒäº†
 ```
 
-#2¡¢socket²ÎÊı½éÉÜ
-socket.socket£¨socket_family, socket_type,protocol=0£©
-ÆäÖĞ£¬socket_familyÊÇAF_UNIX»òAF_INET£¨ÈçÇ°ËùÊö£©£¬socket_typeÊÇSOCK_STREAM»òSOCK_DGRAM(Ò²ÈçÇ°ËùÊö£©¡£protocolÍ¨³£Ê¡ÂÔ£¬Ä¬ÈÏÎª0¡£
-ËùÒÔ£¬ÎªÁË´´½¨TCP/IPÌ×½Ó×Ö£¬¿ÉÒÔÓÃÏÂÃæµÄ·½Ê½µ÷ÓÃsocket.socket()¡£
+#2ã€socketå‚æ•°ä»‹ç»
+socket.socketï¼ˆsocket_family, socket_type,protocol=0ï¼‰
+å…¶ä¸­ï¼Œsocket_familyæ˜¯AF_UNIXæˆ–AF_INETï¼ˆå¦‚å‰æ‰€è¿°ï¼‰ï¼Œsocket_typeæ˜¯SOCK_STREAMæˆ–SOCK_DGRAM(ä¹Ÿå¦‚å‰æ‰€è¿°ï¼‰ã€‚protocolé€šå¸¸çœç•¥ï¼Œé»˜è®¤ä¸º0ã€‚
+æ‰€ä»¥ï¼Œä¸ºäº†åˆ›å»ºTCP/IPå¥—æ¥å­—ï¼Œå¯ä»¥ç”¨ä¸‹é¢çš„æ–¹å¼è°ƒç”¨socket.socket()ã€‚
 	tcpSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-Í¬Ñù£¬ÎªÁË´´½¨UDP/IPÌ×½Ó×Ö£¬ĞèÒªÖ´ĞĞÒÔÏÂÓï¾ä¡£
+åŒæ ·ï¼Œä¸ºäº†åˆ›å»ºUDP/IPå¥—æ¥å­—ï¼Œéœ€è¦æ‰§è¡Œä»¥ä¸‹è¯­å¥ã€‚
 	udpSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 socket.socketpair([family[, type[, proto]]])
 
 socket.create_connection(address[, timeout[, source_address]])
 
-socket.getaddrinfo(host, port, family=0, type=0, proto=0, flags=0) #»ñÈ¡ÒªÁ¬½ÓµÄ¶Ô¶ËÖ÷»úµØÖ· ±Ø»á
+socket.getaddrinfo(host, port, family=0, type=0, proto=0, flags=0) #è·å–è¦è¿æ¥çš„å¯¹ç«¯ä¸»æœºåœ°å€ å¿…ä¼š
 
 sk.bind(adress)
-¡¡s.bind(address) ½«Ì×½Ó×Ö°ó¶¨µ½µØÖ·¡£addressµØÖ·µÄ¸ñÊ½È¡¾öÓÚµØÖ·×å¡£ÔÚAF_INETÏÂ£¬ÒÔÔª×é£¨host,port£©µÄĞÎÊ½±íÊ¾µØÖ·¡£
+ã€€s.bind(address) å°†å¥—æ¥å­—ç»‘å®šåˆ°åœ°å€ã€‚addressåœ°å€çš„æ ¼å¼å–å†³äºåœ°å€æ—ã€‚åœ¨AF_INETä¸‹ï¼Œä»¥å…ƒç»„ï¼ˆhost,portï¼‰çš„å½¢å¼è¡¨ç¤ºåœ°å€ã€‚
 sk.listen(backlog)
-¡¡¿ªÊ¼¼àÌı´«ÈëÁ¬½Ó¡£backlogÖ¸¶¨ÔÚ¾Ü¾øÁ¬½ÓÖ®Ç°£¬¿ÉÒÔ¹ÒÆğµÄ×î´óÁ¬½ÓÊıÁ¿¡£
+ã€€å¼€å§‹ç›‘å¬ä¼ å…¥è¿æ¥ã€‚backlogæŒ‡å®šåœ¨æ‹’ç»è¿æ¥ä¹‹å‰ï¼Œå¯ä»¥æŒ‚èµ·çš„æœ€å¤§è¿æ¥æ•°é‡ã€‚
 
-      backlogµÈÓÚ5£¬±íÊ¾ÄÚºËÒÑ¾­½Óµ½ÁËÁ¬½ÓÇëÇó£¬µ«·şÎñÆ÷»¹Ã»ÓĞµ÷ÓÃaccept½øĞĞ´¦ÀíµÄÁ¬½Ó¸öÊı×î´óÎª5
-      Õâ¸öÖµ²»ÄÜÎŞÏŞ´ó£¬ÒòÎªÒªÔÚÄÚºËÖĞÎ¬»¤Á¬½Ó¶ÓÁĞ
+      backlogç­‰äº5ï¼Œè¡¨ç¤ºå†…æ ¸å·²ç»æ¥åˆ°äº†è¿æ¥è¯·æ±‚ï¼Œä½†æœåŠ¡å™¨è¿˜æ²¡æœ‰è°ƒç”¨acceptè¿›è¡Œå¤„ç†çš„è¿æ¥ä¸ªæ•°æœ€å¤§ä¸º5
+      è¿™ä¸ªå€¼ä¸èƒ½æ— é™å¤§ï¼Œå› ä¸ºè¦åœ¨å†…æ ¸ä¸­ç»´æŠ¤è¿æ¥é˜Ÿåˆ—
 sk.setlocking(bool)
-¡¡ÊÇ·ñ×èÈû£¨Ä¬ÈÏTrue£©£¬Èç¹ûÉèÖÃFalse£¬ÄÇÃ´acceptºÍrecvÊ±Ò»µ©ÎŞÊı¾İ£¬Ôò±¨´í¡£
+ã€€æ˜¯å¦é˜»å¡ï¼ˆé»˜è®¤Trueï¼‰ï¼Œå¦‚æœè®¾ç½®Falseï¼Œé‚£ä¹ˆacceptå’Œrecvæ—¶ä¸€æ—¦æ— æ•°æ®ï¼Œåˆ™æŠ¥é”™ã€‚
 sk.accecp()
-¡¡½ÓÊÜÁ¬½Ó²¢·µ»Ø£¨conn,address£©,ÆäÖĞconnÊÇĞÂµÄÌ×½Ó×Ö¶ÔÏó£¬¿ÉÒÔÓÃÀ´½ÓÊÕºÍ·¢ËÍÊı¾İ¡£addressÊÇÁ¬½Ó¿Í»§¶ËµÄµØÖ·¡£
+ã€€æ¥å—è¿æ¥å¹¶è¿”å›ï¼ˆconn,addressï¼‰,å…¶ä¸­connæ˜¯æ–°çš„å¥—æ¥å­—å¯¹è±¡ï¼Œå¯ä»¥ç”¨æ¥æ¥æ”¶å’Œå‘é€æ•°æ®ã€‚addressæ˜¯è¿æ¥å®¢æˆ·ç«¯çš„åœ°å€ã€‚
 
-¡¡¡¡½ÓÊÕTCP ¿Í»§µÄÁ¬½Ó£¨×èÈûÊ½£©µÈ´ıÁ¬½ÓµÄµ½À´
-sk.connect(address) ±Ø»á
+ã€€ã€€æ¥æ”¶TCP å®¢æˆ·çš„è¿æ¥ï¼ˆé˜»å¡å¼ï¼‰ç­‰å¾…è¿æ¥çš„åˆ°æ¥
+sk.connect(address) å¿…ä¼š
 
-¡¡¡¡Á¬½Óµ½address´¦µÄÌ×½Ó×Ö¡£Ò»°ã£¬addressµÄ¸ñÊ½ÎªÔª×é£¨hostname,port£©,Èç¹ûÁ¬½Ó³ö´í£¬·µ»Øsocket.error´íÎó¡£
+ã€€ã€€è¿æ¥åˆ°addresså¤„çš„å¥—æ¥å­—ã€‚ä¸€èˆ¬ï¼Œaddressçš„æ ¼å¼ä¸ºå…ƒç»„ï¼ˆhostname,portï¼‰,å¦‚æœè¿æ¥å‡ºé”™ï¼Œè¿”å›socket.erroré”™è¯¯ã€‚
 
 sk.connect_ex(address)
 
-¡¡¡¡Í¬ÉÏ£¬Ö»²»¹ı»áÓĞ·µ»ØÖµ£¬Á¬½Ó³É¹¦Ê±·µ»Ø 0 £¬Á¬½ÓÊ§°ÜÊ±ºò·µ»Ø±àÂë£¬ÀıÈç£º10061
+ã€€ã€€åŒä¸Šï¼Œåªä¸è¿‡ä¼šæœ‰è¿”å›å€¼ï¼Œè¿æ¥æˆåŠŸæ—¶è¿”å› 0 ï¼Œè¿æ¥å¤±è´¥æ—¶å€™è¿”å›ç¼–ç ï¼Œä¾‹å¦‚ï¼š10061
 
-sk.close() ±Ø»á
+sk.close() å¿…ä¼š
 
-¡¡¡¡¹Ø±ÕÌ×½Ó×Ö
+ã€€ã€€å…³é—­å¥—æ¥å­—
 
-sk.recv(bufsize[,flag]) ±Ø»á
+sk.recv(bufsize[,flag]) å¿…ä¼š
 
-¡¡¡¡½ÓÊÜÌ×½Ó×ÖµÄÊı¾İ¡£Êı¾İÒÔ×Ö·û´®ĞÎÊ½·µ»Ø£¬bufsizeÖ¸¶¨×î¶à¿ÉÒÔ½ÓÊÕµÄÊıÁ¿¡£flagÌá¹©ÓĞ¹ØÏûÏ¢µÄÆäËûĞÅÏ¢£¬Í¨³£¿ÉÒÔºöÂÔ¡£
+ã€€ã€€æ¥å—å¥—æ¥å­—çš„æ•°æ®ã€‚æ•°æ®ä»¥å­—ç¬¦ä¸²å½¢å¼è¿”å›ï¼ŒbufsizeæŒ‡å®šæœ€å¤šå¯ä»¥æ¥æ”¶çš„æ•°é‡ã€‚flagæä¾›æœ‰å…³æ¶ˆæ¯çš„å…¶ä»–ä¿¡æ¯ï¼Œé€šå¸¸å¯ä»¥å¿½ç•¥ã€‚
 
 sk.recvfrom(bufsize[.flag])
 
-¡¡¡¡Óërecv()ÀàËÆ£¬µ«·µ»ØÖµÊÇ£¨data,address£©¡£ÆäÖĞdataÊÇ°üº¬½ÓÊÕÊı¾İµÄ×Ö·û´®£¬addressÊÇ·¢ËÍÊı¾İµÄÌ×½Ó×ÖµØÖ·¡£
+ã€€ã€€ä¸recv()ç±»ä¼¼ï¼Œä½†è¿”å›å€¼æ˜¯ï¼ˆdata,addressï¼‰ã€‚å…¶ä¸­dataæ˜¯åŒ…å«æ¥æ”¶æ•°æ®çš„å­—ç¬¦ä¸²ï¼Œaddressæ˜¯å‘é€æ•°æ®çš„å¥—æ¥å­—åœ°å€ã€‚
 
-sk.send(string[,flag]) ±Ø»á
+sk.send(string[,flag]) å¿…ä¼š
 
-¡¡¡¡½«stringÖĞµÄÊı¾İ·¢ËÍµ½Á¬½ÓµÄÌ×½Ó×Ö¡£·µ»ØÖµÊÇÒª·¢ËÍµÄ×Ö½ÚÊıÁ¿£¬¸ÃÊıÁ¿¿ÉÄÜĞ¡ÓÚstringµÄ×Ö½Ú´óĞ¡¡£¼´£º¿ÉÄÜÎ´½«Ö¸¶¨ÄÚÈİÈ«²¿·¢ËÍ¡£
+ã€€ã€€å°†stringä¸­çš„æ•°æ®å‘é€åˆ°è¿æ¥çš„å¥—æ¥å­—ã€‚è¿”å›å€¼æ˜¯è¦å‘é€çš„å­—èŠ‚æ•°é‡ï¼Œè¯¥æ•°é‡å¯èƒ½å°äºstringçš„å­—èŠ‚å¤§å°ã€‚å³ï¼šå¯èƒ½æœªå°†æŒ‡å®šå†…å®¹å…¨éƒ¨å‘é€ã€‚
 
-sk.sendall(string[,flag]) ±Ø»á
+sk.sendall(string[,flag]) å¿…ä¼š
 
-¡¡¡¡½«stringÖĞµÄÊı¾İ·¢ËÍµ½Á¬½ÓµÄÌ×½Ó×Ö£¬µ«ÔÚ·µ»ØÖ®Ç°»á³¢ÊÔ·¢ËÍËùÓĞÊı¾İ¡£³É¹¦·µ»ØNone£¬Ê§°ÜÔòÅ×³öÒì³£¡£
+ã€€ã€€å°†stringä¸­çš„æ•°æ®å‘é€åˆ°è¿æ¥çš„å¥—æ¥å­—ï¼Œä½†åœ¨è¿”å›ä¹‹å‰ä¼šå°è¯•å‘é€æ‰€æœ‰æ•°æ®ã€‚æˆåŠŸè¿”å›Noneï¼Œå¤±è´¥åˆ™æŠ›å‡ºå¼‚å¸¸ã€‚
 
-      ÄÚ²¿Í¨¹ıµİ¹éµ÷ÓÃsend£¬½«ËùÓĞÄÚÈİ·¢ËÍ³öÈ¥¡£
+      å†…éƒ¨é€šè¿‡é€’å½’è°ƒç”¨sendï¼Œå°†æ‰€æœ‰å†…å®¹å‘é€å‡ºå»ã€‚
 
 sk.sendto(string[,flag],address)
 
-¡¡¡¡½«Êı¾İ·¢ËÍµ½Ì×½Ó×Ö£¬addressÊÇĞÎÊ½Îª£¨ipaddr£¬port£©µÄÔª×é£¬Ö¸¶¨Ô¶³ÌµØÖ·¡£·µ»ØÖµÊÇ·¢ËÍµÄ×Ö½ÚÊı¡£¸Ãº¯ÊıÖ÷ÒªÓÃÓÚUDPĞ­Òé¡£
+ã€€ã€€å°†æ•°æ®å‘é€åˆ°å¥—æ¥å­—ï¼Œaddressæ˜¯å½¢å¼ä¸ºï¼ˆipaddrï¼Œportï¼‰çš„å…ƒç»„ï¼ŒæŒ‡å®šè¿œç¨‹åœ°å€ã€‚è¿”å›å€¼æ˜¯å‘é€çš„å­—èŠ‚æ•°ã€‚è¯¥å‡½æ•°ä¸»è¦ç”¨äºUDPåè®®ã€‚
 
-sk.settimeout(timeout) ±Ø»á
+sk.settimeout(timeout) å¿…ä¼š
 
-¡¡¡¡ÉèÖÃÌ×½Ó×Ö²Ù×÷µÄ³¬Ê±ÆÚ£¬timeoutÊÇÒ»¸ö¸¡µãÊı£¬µ¥Î»ÊÇÃë¡£ÖµÎªNone±íÊ¾Ã»ÓĞ³¬Ê±ÆÚ¡£Ò»°ã£¬³¬Ê±ÆÚÓ¦¸ÃÔÚ¸Õ´´½¨Ì×½Ó×ÖÊ±ÉèÖÃ£¬ÒòÎªËüÃÇ¿ÉÄÜÓÃÓÚÁ¬½ÓµÄ²Ù×÷£¨Èç client Á¬½Ó×î¶àµÈ´ı5s £©
+ã€€ã€€è®¾ç½®å¥—æ¥å­—æ“ä½œçš„è¶…æ—¶æœŸï¼Œtimeoutæ˜¯ä¸€ä¸ªæµ®ç‚¹æ•°ï¼Œå•ä½æ˜¯ç§’ã€‚å€¼ä¸ºNoneè¡¨ç¤ºæ²¡æœ‰è¶…æ—¶æœŸã€‚ä¸€èˆ¬ï¼Œè¶…æ—¶æœŸåº”è¯¥åœ¨åˆšåˆ›å»ºå¥—æ¥å­—æ—¶è®¾ç½®ï¼Œå› ä¸ºå®ƒä»¬å¯èƒ½ç”¨äºè¿æ¥çš„æ“ä½œï¼ˆå¦‚ client è¿æ¥æœ€å¤šç­‰å¾…5s ï¼‰
 
-sk.getpeername()  ±Ø»á
+sk.getpeername()  å¿…ä¼š
 
-¡¡¡¡·µ»ØÁ¬½ÓÌ×½Ó×ÖµÄÔ¶³ÌµØÖ·¡£·µ»ØÖµÍ¨³£ÊÇÔª×é£¨ipaddr,port£©¡£
+ã€€ã€€è¿”å›è¿æ¥å¥—æ¥å­—çš„è¿œç¨‹åœ°å€ã€‚è¿”å›å€¼é€šå¸¸æ˜¯å…ƒç»„ï¼ˆipaddr,portï¼‰ã€‚
 
 sk.getsockname() 
 
-¡¡¡¡·µ»ØÌ×½Ó×Ö×Ô¼ºµÄµØÖ·¡£Í¨³£ÊÇÒ»¸öÔª×é(ipaddr,port)
+ã€€ã€€è¿”å›å¥—æ¥å­—è‡ªå·±çš„åœ°å€ã€‚é€šå¸¸æ˜¯ä¸€ä¸ªå…ƒç»„(ipaddr,port)
 
 sk.fileno() 
 
-¡¡¡¡Ì×½Ó×ÖµÄÎÄ¼şÃèÊö·û
+ã€€ã€€å¥—æ¥å­—çš„æ–‡ä»¶æè¿°ç¬¦
 
 socket.sendfile(file, offset=0, count=None)
 
-     ·¢ËÍÎÄ¼ş £¬µ«Ä¿Ç°¶àÊıÇé¿öÏÂ²¢ÎŞÊ²Ã´ÂÑÓÃ¡£
+     å‘é€æ–‡ä»¶ ï¼Œä½†ç›®å‰å¤šæ•°æƒ…å†µä¸‹å¹¶æ— ä»€ä¹ˆåµç”¨ã€‚
      
-#3¡¢socketÊµÀı
-Ç°Ãæ½²ÁËÄÇÃ´¶à£¬µ½µ×ÔõÃ´ÓÃÄØ£¿
+#3ã€socketå®ä¾‹
+å‰é¢è®²äº†é‚£ä¹ˆå¤šï¼Œåˆ°åº•æ€ä¹ˆç”¨å‘¢ï¼Ÿ
 socketserver.py
 ```
 import socket
 
-server = socket.socket() #»ñµÃsocketÊµÀı
+server = socket.socket() #è·å¾—socketå®ä¾‹
 
-server.bind(("localhost",9998)) #°ó¶¨ip port
-server.listen()  #¿ªÊ¼¼àÌı
-print("µÈ´ı¿Í»§¶ËµÄÁ¬½Ó...")
-conn,addr = server.accept() #½ÓÊÜ²¢½¨Á¢Óë¿Í»§¶ËµÄÁ¬½Ó,³ÌĞòÔÚ´Ë´¦¿ªÊ¼×èÈû,Ö»µ½ÓĞ¿Í»§¶ËÁ¬½Ó½øÀ´...
-print("ĞÂÁ¬½Ó:",addr )
+server.bind(("localhost",9998)) #ç»‘å®šip port
+server.listen()  #å¼€å§‹ç›‘å¬
+print("ç­‰å¾…å®¢æˆ·ç«¯çš„è¿æ¥...")
+conn,addr = server.accept() #æ¥å—å¹¶å»ºç«‹ä¸å®¢æˆ·ç«¯çš„è¿æ¥,ç¨‹åºåœ¨æ­¤å¤„å¼€å§‹é˜»å¡,åªåˆ°æœ‰å®¢æˆ·ç«¯è¿æ¥è¿›æ¥...
+print("æ–°è¿æ¥:",addr )
 
 data = conn.recv(1024)
-print("ÊÕµ½ÏûÏ¢:",data)
+print("æ”¶åˆ°æ¶ˆæ¯:",data)
 
 
 server.close()
@@ -153,31 +153,31 @@ client.close()
 
 SocketClient.py
 ```
-ÉÏÃæµÄ´úÂëµÄÓĞÒ»¸öÎÊÌâ£¬ ¾ÍÊÇSocketServer.pyÔËĞĞÆğÀ´ºó£¬ ½ÓÊÕÁËÒ»´Î¿Í»§¶ËµÄdata¾ÍÍË³öÁË¡£¡£¡££¬ µ«Êµ¼Ê³¡¾°ÖĞ£¬Ò»¸öÁ¬½Ó½¨Á¢ÆğÀ´ºó£¬¿ÉÄÜÒª½øĞĞ¶à´ÎÍù·µµÄÍ¨ĞÅ¡£
-![]()
-¶à´ÎµÄÊı¾İ½»»¥ÔõÃ´ÊµÏÖ£¿
-socketserver¶ËÖ§³Ö½»»¥
+ä¸Šé¢çš„ä»£ç çš„æœ‰ä¸€ä¸ªé—®é¢˜ï¼Œ å°±æ˜¯SocketServer.pyè¿è¡Œèµ·æ¥åï¼Œ æ¥æ”¶äº†ä¸€æ¬¡å®¢æˆ·ç«¯çš„dataå°±é€€å‡ºäº†ã€‚ã€‚ã€‚ï¼Œ ä½†å®é™…åœºæ™¯ä¸­ï¼Œä¸€ä¸ªè¿æ¥å»ºç«‹èµ·æ¥åï¼Œå¯èƒ½è¦è¿›è¡Œå¤šæ¬¡å¾€è¿”çš„é€šä¿¡ã€‚
+![](https://github.com/erstarry/erstarry.github.io/blob/master/img/socket%E9%80%9A%E4%BF%A1.png)
+å¤šæ¬¡çš„æ•°æ®äº¤äº’æ€ä¹ˆå®ç°ï¼Ÿ
+socketserverç«¯æ”¯æŒäº¤äº’
 ```
 import socket
 
-server = socket.socket() #»ñµÃsocketÊµÀı
+server = socket.socket() #è·å¾—socketå®ä¾‹
 
-server.bind(("localhost",9998)) #°ó¶¨ip port
-server.listen()  #¿ªÊ¼¼àÌı
-print("µÈ´ı¿Í»§¶ËµÄÁ¬½Ó...")
-conn,addr = server.accept() #½ÓÊÜ²¢½¨Á¢Óë¿Í»§¶ËµÄÁ¬½Ó,³ÌĞòÔÚ´Ë´¦¿ªÊ¼×èÈû,Ö»µ½ÓĞ¿Í»§¶ËÁ¬½Ó½øÀ´...
-print("ĞÂÁ¬½Ó:",addr )
+server.bind(("localhost",9998)) #ç»‘å®šip port
+server.listen()  #å¼€å§‹ç›‘å¬
+print("ç­‰å¾…å®¢æˆ·ç«¯çš„è¿æ¥...")
+conn,addr = server.accept() #æ¥å—å¹¶å»ºç«‹ä¸å®¢æˆ·ç«¯çš„è¿æ¥,ç¨‹åºåœ¨æ­¤å¤„å¼€å§‹é˜»å¡,åªåˆ°æœ‰å®¢æˆ·ç«¯è¿æ¥è¿›æ¥...
+print("æ–°è¿æ¥:",addr )
 while True:
 
     data = conn.recv(1024)
 
-    print("ÊÕµ½ÏûÏ¢:",data)
+    print("æ”¶åˆ°æ¶ˆæ¯:",data)
     conn.send(data.upper())
 
 server.close()
 
 ```
-socketclient¶ËÖ§³Ö½»»¥
+socketclientç«¯æ”¯æŒäº¤äº’
 ```
 import socket
 
@@ -191,104 +191,104 @@ while True:
     client.send( msg.encode("utf-8") )
 
     data = client.recv(1024)
-    print("À´×Ô·şÎñÆ÷:",data)
+    print("æ¥è‡ªæœåŠ¡å™¨:",data)
 
 client.close()
 
 ```
-ÊµÏÖÁË¶à´Î½»»¥£¬ °ô°ôµÄ£¬ µ«Äã»á·¢ÏÖÒ»¸öĞ¡ÎÊÌâ£¬ ¾ÍÊÇ¿Í»§¶ËÒ»¶Ï¿ª£¬·şÎñÆ÷¶Ë¾Í½øÈëÁËËÀÑ­»·£¬ÎªÉ¶ÄØ£¿
+å®ç°äº†å¤šæ¬¡äº¤äº’ï¼Œ æ£’æ£’çš„ï¼Œ ä½†ä½ ä¼šå‘ç°ä¸€ä¸ªå°é—®é¢˜ï¼Œ å°±æ˜¯å®¢æˆ·ç«¯ä¸€æ–­å¼€ï¼ŒæœåŠ¡å™¨ç«¯å°±è¿›å…¥äº†æ­»å¾ªç¯ï¼Œä¸ºå•¥å‘¢ï¼Ÿ
 
-¿´¿Í»§¶Ë¶Ï¿ªÊ±·şÎñÆ÷¶ËµÄÊä³ö
+çœ‹å®¢æˆ·ç«¯æ–­å¼€æ—¶æœåŠ¡å™¨ç«¯çš„è¾“å‡º
 ```
-µÈ´ı¿Í»§¶ËµÄÁ¬½Ó...
-ĞÂÁ¬½Ó: ('127.0.0.1', 62722)
-ÊÕµ½ÏûÏ¢: b'hey'
-ÊÕµ½ÏûÏ¢: b'you'
-ÊÕµ½ÏûÏ¢: b''  #¿Í»§¶ËÒ»¶Ï¿ª£¬·şÎñÆ÷¶Ë¾ÍÊÕ²»µ½Êı¾İÁË£¬µ«ÊÇ²»»á±¨´í£¬¾Í½øÈëÁËËÀÑ­»·Ä£Ê½¡£¡£¡£
-ÊÕµ½ÏûÏ¢: b''
-ÊÕµ½ÏûÏ¢: b''
-ÊÕµ½ÏûÏ¢: b''
-ÊÕµ½ÏûÏ¢: b''
+ç­‰å¾…å®¢æˆ·ç«¯çš„è¿æ¥...
+æ–°è¿æ¥: ('127.0.0.1', 62722)
+æ”¶åˆ°æ¶ˆæ¯: b'hey'
+æ”¶åˆ°æ¶ˆæ¯: b'you'
+æ”¶åˆ°æ¶ˆæ¯: b''  #å®¢æˆ·ç«¯ä¸€æ–­å¼€ï¼ŒæœåŠ¡å™¨ç«¯å°±æ”¶ä¸åˆ°æ•°æ®äº†ï¼Œä½†æ˜¯ä¸ä¼šæŠ¥é”™ï¼Œå°±è¿›å…¥äº†æ­»å¾ªç¯æ¨¡å¼ã€‚ã€‚ã€‚
+æ”¶åˆ°æ¶ˆæ¯: b''
+æ”¶åˆ°æ¶ˆæ¯: b''
+æ”¶åˆ°æ¶ˆæ¯: b''
+æ”¶åˆ°æ¶ˆæ¯: b''
 ```
-ÖªµÀÁËÔ­Òò¾ÍºÃ½â¾öÁË£¬Ö»ĞèÒª¼Ó¸öÅĞ¶Ï·şÎñÆ÷½Óµ½µÄÊı¾İÊÇ·ñÎª¿Õ¾ÍºÃÁË£¬Îª¿Õ¾Í´ú±í¶ÏÁË¡£¡£¡£
-¼ÓÁËÅĞ¶Ï¿Í»§¶ËÊÇ·ñ¶Ï¿ªµÄ´úÂë
+çŸ¥é“äº†åŸå› å°±å¥½è§£å†³äº†ï¼Œåªéœ€è¦åŠ ä¸ªåˆ¤æ–­æœåŠ¡å™¨æ¥åˆ°çš„æ•°æ®æ˜¯å¦ä¸ºç©ºå°±å¥½äº†ï¼Œä¸ºç©ºå°±ä»£è¡¨æ–­äº†ã€‚ã€‚ã€‚
+åŠ äº†åˆ¤æ–­å®¢æˆ·ç«¯æ˜¯å¦æ–­å¼€çš„ä»£ç 
 ```
 import socket
 
-server = socket.socket() #»ñµÃsocketÊµÀı
+server = socket.socket() #è·å¾—socketå®ä¾‹
 
-server.bind(("localhost",9998)) #°ó¶¨ip port
-server.listen()  #¿ªÊ¼¼àÌı
-print("µÈ´ı¿Í»§¶ËµÄÁ¬½Ó...")
-conn,addr = server.accept() #½ÓÊÜ²¢½¨Á¢Óë¿Í»§¶ËµÄÁ¬½Ó,³ÌĞòÔÚ´Ë´¦¿ªÊ¼×èÈû,Ö»µ½ÓĞ¿Í»§¶ËÁ¬½Ó½øÀ´...
-print("ĞÂÁ¬½Ó:",addr )
+server.bind(("localhost",9998)) #ç»‘å®šip port
+server.listen()  #å¼€å§‹ç›‘å¬
+print("ç­‰å¾…å®¢æˆ·ç«¯çš„è¿æ¥...")
+conn,addr = server.accept() #æ¥å—å¹¶å»ºç«‹ä¸å®¢æˆ·ç«¯çš„è¿æ¥,ç¨‹åºåœ¨æ­¤å¤„å¼€å§‹é˜»å¡,åªåˆ°æœ‰å®¢æˆ·ç«¯è¿æ¥è¿›æ¥...
+print("æ–°è¿æ¥:",addr )
 while True:
 
     data = conn.recv(1024)
     if not data:
-        print("¿Í»§¶Ë¶Ï¿ªÁË...")
+        print("å®¢æˆ·ç«¯æ–­å¼€äº†...")
         break
-    print("ÊÕµ½ÏûÏ¢:",data)
+    print("æ”¶åˆ°æ¶ˆæ¯:",data)
     conn.send(data.upper())
 
 server.close()
 
 ```
-#4¡¢socketÊµÏÖ¶àÁ¬½Ó´¦Àí
-ÉÏÃæµÄ´úÂëËäÈ»ÊµÏÖÁË·şÎñ¶ËÓë¿Í»§¶ËµÄ¶à´Î½»»¥£¬µ«ÊÇÄã»á·¢ÏÖ£¬Èç¹û¿Í»§¶Ë¶Ï¿ªÁË£¬ ·şÎñÆ÷¶ËÒ²»á¸ú×ÅÁ¢¿Ì¶Ï¿ª£¬ÒòÎª·şÎñÆ÷Ö»ÓĞÒ»¸öwhile Ñ­»·£¬¿Í»§¶ËÒ»¶Ï¿ª£¬·şÎñ¶ËÊÕ²»µ½Êı¾İ £¬¾Í»áÖ±½ÓbreakÌø³öÑ­»·£¬È»ºó³ÌĞò¾ÍÍË³öÁË£¬ÕâÏÔÈ»²»ÊÇÎÒÃÇÏëÒªµÄ½á¹û £¬ÎÒÃÇÏëÒªµÄÊÇ£¬¿Í»§¶ËÈç¹û¶Ï¿ªÁË£¬ÎÒÃÇÕâ¸ö·şÎñ¶Ë»¹¿ÉÒÔÎªÏÂÒ»¸ö¿Í»§¶Ë·şÎñ£¬ÔÚÕâÀïÈçºÎÊµÏÖÄØ£¿
-- `conn,addr = server.accept()` ½ÓÊÜ²¢½¨Á¢Óë¿Í»§¶ËµÄÁ¬½Ó,³ÌĞòÔÚ´Ë´¦¿ªÊ¼×èÈû,Ö»µ½ÓĞ¿Í»§¶ËÁ¬½Ó½øÀ´...
-ÎÒÃÇÖªµÀÉÏÃæÕâ¾ä»°¸ºÔğµÈ´ı²¢½ÓÊÕĞÂÁ¬½Ó£¬¶ÔÓÚÉÏÃæÄÇ¸ö³ÌĞò£¬ÆäÊµÔÚwhile breakÖ®ºó£¬Ö»ÒªÈÃ³ÌĞòÔÙ´Î»Øµ½ÉÏÃæÕâ¾ä´úÂëÕâ£¬¾Í¿ÉÒÔÈÃ·şÎñ¶Ë¼ÌĞø½ÓÏÂÒ»¸ö¿Í»§À²¡£ 
+#4ã€socketå®ç°å¤šè¿æ¥å¤„ç†
+ä¸Šé¢çš„ä»£ç è™½ç„¶å®ç°äº†æœåŠ¡ç«¯ä¸å®¢æˆ·ç«¯çš„å¤šæ¬¡äº¤äº’ï¼Œä½†æ˜¯ä½ ä¼šå‘ç°ï¼Œå¦‚æœå®¢æˆ·ç«¯æ–­å¼€äº†ï¼Œ æœåŠ¡å™¨ç«¯ä¹Ÿä¼šè·Ÿç€ç«‹åˆ»æ–­å¼€ï¼Œå› ä¸ºæœåŠ¡å™¨åªæœ‰ä¸€ä¸ªwhile å¾ªç¯ï¼Œå®¢æˆ·ç«¯ä¸€æ–­å¼€ï¼ŒæœåŠ¡ç«¯æ”¶ä¸åˆ°æ•°æ® ï¼Œå°±ä¼šç›´æ¥breakè·³å‡ºå¾ªç¯ï¼Œç„¶åç¨‹åºå°±é€€å‡ºäº†ï¼Œè¿™æ˜¾ç„¶ä¸æ˜¯æˆ‘ä»¬æƒ³è¦çš„ç»“æœ ï¼Œæˆ‘ä»¬æƒ³è¦çš„æ˜¯ï¼Œå®¢æˆ·ç«¯å¦‚æœæ–­å¼€äº†ï¼Œæˆ‘ä»¬è¿™ä¸ªæœåŠ¡ç«¯è¿˜å¯ä»¥ä¸ºä¸‹ä¸€ä¸ªå®¢æˆ·ç«¯æœåŠ¡ï¼Œåœ¨è¿™é‡Œå¦‚ä½•å®ç°å‘¢ï¼Ÿ
+- `conn,addr = server.accept()` æ¥å—å¹¶å»ºç«‹ä¸å®¢æˆ·ç«¯çš„è¿æ¥,ç¨‹åºåœ¨æ­¤å¤„å¼€å§‹é˜»å¡,åªåˆ°æœ‰å®¢æˆ·ç«¯è¿æ¥è¿›æ¥...
+æˆ‘ä»¬çŸ¥é“ä¸Šé¢è¿™å¥è¯è´Ÿè´£ç­‰å¾…å¹¶æ¥æ”¶æ–°è¿æ¥ï¼Œå¯¹äºä¸Šé¢é‚£ä¸ªç¨‹åºï¼Œå…¶å®åœ¨while breakä¹‹åï¼Œåªè¦è®©ç¨‹åºå†æ¬¡å›åˆ°ä¸Šé¢è¿™å¥ä»£ç è¿™ï¼Œå°±å¯ä»¥è®©æœåŠ¡ç«¯ç»§ç»­æ¥ä¸‹ä¸€ä¸ªå®¢æˆ·å•¦ã€‚ 
 ```
 import socket
  
-server = socket.socket() #»ñµÃsocketÊµÀı
+server = socket.socket() #è·å¾—socketå®ä¾‹
  
-server.bind(("localhost",9998)) #°ó¶¨ip port
-server.listen()  #¿ªÊ¼¼àÌı
+server.bind(("localhost",9998)) #ç»‘å®šip port
+server.listen()  #å¼€å§‹ç›‘å¬
  
-while True: #µÚÒ»²ãloop
-    print("µÈ´ı¿Í»§¶ËµÄÁ¬½Ó...")
-    conn,addr = server.accept() #½ÓÊÜ²¢½¨Á¢Óë¿Í»§¶ËµÄÁ¬½Ó,³ÌĞòÔÚ´Ë´¦¿ªÊ¼×èÈû,Ö»µ½ÓĞ¿Í»§¶ËÁ¬½Ó½øÀ´...
-    print("ĞÂÁ¬½Ó:",addr )
+while True: #ç¬¬ä¸€å±‚loop
+    print("ç­‰å¾…å®¢æˆ·ç«¯çš„è¿æ¥...")
+    conn,addr = server.accept() #æ¥å—å¹¶å»ºç«‹ä¸å®¢æˆ·ç«¯çš„è¿æ¥,ç¨‹åºåœ¨æ­¤å¤„å¼€å§‹é˜»å¡,åªåˆ°æœ‰å®¢æˆ·ç«¯è¿æ¥è¿›æ¥...
+    print("æ–°è¿æ¥:",addr )
     while True:
  
         data = conn.recv(1024)
         if not data:
-            print("¿Í»§¶Ë¶Ï¿ªÁË...")
-            break #ÕâÀï¶Ï¿ª¾Í»áÔÙ´Î»Øµ½µÚÒ»´ÎÍâ²ãµÄloop
-        print("ÊÕµ½ÏûÏ¢:",data)
+            print("å®¢æˆ·ç«¯æ–­å¼€äº†...")
+            break #è¿™é‡Œæ–­å¼€å°±ä¼šå†æ¬¡å›åˆ°ç¬¬ä¸€æ¬¡å¤–å±‚çš„loop
+        print("æ”¶åˆ°æ¶ˆæ¯:",data)
         conn.send(data.upper())
  
 server.close()
 ```
-#Í¨¹ısocketÊµÏÖ¼òµ¥µÄssh
-¹âÖ»ÊÇ¼òµ¥µÄ·¢ÏûÏ¢¡¢ÊÕÏûÏ¢Ã»ÒâË¼£¬¸ÉµãÕıÊÂ£¬¿ÉÒÔ×öÒ»¸ö¼«¼ò°æµÄssh£¬¾ÍÊÇ¿Í»§¶ËÁ¬½ÓÉÏ·şÎñÆ÷ºó£¬ÈÃ·şÎñÆ÷Ö´ĞĞÃüÁî£¬²¢·µ»Ø½á¹û¸ø¿Í»§¶Ë¡£
-socket ssh·şÎñ¶Ë
+#é€šè¿‡socketå®ç°ç®€å•çš„ssh
+å…‰åªæ˜¯ç®€å•çš„å‘æ¶ˆæ¯ã€æ”¶æ¶ˆæ¯æ²¡æ„æ€ï¼Œå¹²ç‚¹æ­£äº‹ï¼Œå¯ä»¥åšä¸€ä¸ªæç®€ç‰ˆçš„sshï¼Œå°±æ˜¯å®¢æˆ·ç«¯è¿æ¥ä¸ŠæœåŠ¡å™¨åï¼Œè®©æœåŠ¡å™¨æ‰§è¡Œå‘½ä»¤ï¼Œå¹¶è¿”å›ç»“æœç»™å®¢æˆ·ç«¯ã€‚
+socket sshæœåŠ¡ç«¯
 ```
 #!/usr/bin/env python
 # coding=utf-8
 import socket
 import os,subprocess
-server = socket.socket()	#»ñµÃsocketÊµÀı
-server.bind(("localhost",9998))	#°ó¶¨ip£¬port
-server.listen()	#¿ªÊ¼¼àÌı
+server = socket.socket()	#è·å¾—socketå®ä¾‹
+server.bind(("localhost",9998))	#ç»‘å®šipï¼Œport
+server.listen()	#å¼€å§‹ç›‘å¬
 while True:
-    print("µÈ´ıĞÂÁ¬½Ó£º")
-    conn,addr = server.accept()	#½ÓÊÜ²¢½¨Á¢Óë¿Í»§¶ËµÄÁ¬½Ó,³ÌĞòÔÚ´Ë´¦¿ªÊ¼×èÈû,Ö»µ½ÓĞ¿Í»§¶ËÁ¬½Ó½øÀ´...
+    print("ç­‰å¾…æ–°è¿æ¥ï¼š")
+    conn,addr = server.accept()	#æ¥å—å¹¶å»ºç«‹ä¸å®¢æˆ·ç«¯çš„è¿æ¥,ç¨‹åºåœ¨æ­¤å¤„å¼€å§‹é˜»å¡,åªåˆ°æœ‰å®¢æˆ·ç«¯è¿æ¥è¿›æ¥...
     print("new conn:",addr)
     while True:
-        print("µÈ´ıĞÂÖ¸Áî")
+        print("ç­‰å¾…æ–°æŒ‡ä»¤")
         data = conn.recv(1024)
         if not data:
-            print("¿Í»§¶Ë¶Ï¿ªÁË...")
+            print("å®¢æˆ·ç«¯æ–­å¼€äº†...")
             break
-        print("Ö´ĞĞÃüÁî:",data)
-        cmd_res = os.popen(data.decode()).read()    #py3 Àïsocket·¢ËÍµÄÖ»ÓĞbytes,os.popenÓÖÖ»ÄÜ½ÓÊÜstr,ËùÒÔÒªdecodeÒ»ÏÂ
-        #res = subprocess.Popen(data,shell=True,stdout=subprocess.PIPE).stdout.read() #¸úÉÏÃæÄÇÌõÃüÁîµÄĞ§¹ûÊÇÒ»ÑùµÄ
+        print("æ‰§è¡Œå‘½ä»¤:",data)
+        cmd_res = os.popen(data.decode()).read()    #py3 é‡Œsocketå‘é€çš„åªæœ‰bytes,os.popenåˆåªèƒ½æ¥å—str,æ‰€ä»¥è¦decodeä¸€ä¸‹
+        #res = subprocess.Popen(data,shell=True,stdout=subprocess.PIPE).stdout.read() #è·Ÿä¸Šé¢é‚£æ¡å‘½ä»¤çš„æ•ˆæœæ˜¯ä¸€æ ·çš„
         print("before send",len(cmd_res))
         if len(cmd_res)==0:
             cmd_res = "cmd has no output..."
-        conn.send(str(len(cmd_res.encode())).encode("utf-8"))   #·¢ËÍÊı¾İÖ®Ç°,ÏÈ¸æËß¿Í»§¶ËÒª·¢¶àÉÙÊı¾İ¸øËü
+        conn.send(str(len(cmd_res.encode())).encode("utf-8"))   #å‘é€æ•°æ®ä¹‹å‰,å…ˆå‘Šè¯‰å®¢æˆ·ç«¯è¦å‘å¤šå°‘æ•°æ®ç»™å®ƒ
         ask_client = conn.recv(1024)
         print(ask_client)
         conn.send(cmd_res.encode("utf-8"))
@@ -296,7 +296,7 @@ while True:
 server.close
 
 ```
-socket ssh¿Í»§¶Ë
+socket sshå®¢æˆ·ç«¯
 ```
 #!/usr/bin/env python
 # coding=utf-8
@@ -308,10 +308,10 @@ while True:
     if len(cmd) == 0:
         continue
     client.send(cmd.encode("utf-8"))
-    cmd_res_size = client.recv(1024)    #½ÓÊÜÃüÁî½á¹ûµÄ³¤¶È
-    print("ÃüÁî½á¹û´óĞ¡:",cmd_res_size)
+    cmd_res_size = client.recv(1024)    #æ¥å—å‘½ä»¤ç»“æœçš„é•¿åº¦
+    print("å‘½ä»¤ç»“æœå¤§å°:",cmd_res_size)
     to_server = client.send("everything is ok,starting send...".encode())
-    received_size = 0	#ÒÑ½ÓÊÕµ½µÄÊı¾İ
+    received_size = 0	#å·²æ¥æ”¶åˆ°çš„æ•°æ®
     received_data = b''
     
     while received_size < int(cmd_res_size.decode()):
@@ -323,32 +323,32 @@ while True:
         print(received_data.decode())
 client.close()
 ```
-![]
-###socketserverÄ£¿é
+![https://github.com/erstarry/erstarry.github.io/blob/master/img/socket%20ssh.png]
+###socketserveræ¨¡å—
 The socketserver module simplifies the task of writing network servers.
-1¡¢socketÄ£¿é²»ÄÜÊµÏÖ¶à²¢·¢    
-2¡¢socketserverÊÇ¶ÔsocketµÄÔÙ·â×°
-´´½¨Ò»¸ösocketserver·ÖÒÔÏÂ¼¸²½£º
-    First, you must create a request handler£¨´¦ÀíÀà£© class by subclassing the BaseRequestHandler class and overriding£¨¸²¸Ç£© its handle() method; this method will process incoming requests. ¡¡¡¡
-    Äã±ØĞë×Ô¼º´´½¨Ò»¸öÇëÇó´¦ÀíÀà£¬²¢ÇÒÕâ¸öÀàÒª¼Ì³ĞBaseRequestHandler,²¢ÇÒ»¹ÓĞÖØĞ´¸¸Ç×ÀàÀïµÄhandle()¡¾¸ú¿Í»§¶ËËùÓĞµÄ½»»¥¶¼ÊÇÔÚhandle£¨£©ÀïÍê³ÉµÄ¡¿
+1ã€socketæ¨¡å—ä¸èƒ½å®ç°å¤šå¹¶å‘    
+2ã€socketserveræ˜¯å¯¹socketçš„å†å°è£…
+åˆ›å»ºä¸€ä¸ªsocketserveråˆ†ä»¥ä¸‹å‡ æ­¥ï¼š
+    First, you must create a request handlerï¼ˆå¤„ç†ç±»ï¼‰ class by subclassing the BaseRequestHandler class and overridingï¼ˆè¦†ç›–ï¼‰ its handle() method; this method will process incoming requests. ã€€ã€€
+    ä½ å¿…é¡»è‡ªå·±åˆ›å»ºä¸€ä¸ªè¯·æ±‚å¤„ç†ç±»ï¼Œå¹¶ä¸”è¿™ä¸ªç±»è¦ç»§æ‰¿BaseRequestHandler,å¹¶ä¸”è¿˜æœ‰é‡å†™çˆ¶äº²ç±»é‡Œçš„handle()ã€è·Ÿå®¢æˆ·ç«¯æ‰€æœ‰çš„äº¤äº’éƒ½æ˜¯åœ¨handleï¼ˆï¼‰é‡Œå®Œæˆçš„ã€‘
 
-    Second, you must instantiate£¨ÊµÀı»¯£© one of the server classes, passing it the server¡¯s address and the request handler class.
-    Äã±ØĞëÊµÀı»¯TCPServer £¬²¢ÇÒ´«µİserver ip ºÍ ÄãÉÏÃæ´´½¨µÄÇëÇó´¦ÀíÀà ¸øÕâ¸öTCPServer
+    Second, you must instantiateï¼ˆå®ä¾‹åŒ–ï¼‰ one of the server classes, passing it the serverâ€™s address and the request handler class.
+    ä½ å¿…é¡»å®ä¾‹åŒ–TCPServer ï¼Œå¹¶ä¸”ä¼ é€’server ip å’Œ ä½ ä¸Šé¢åˆ›å»ºçš„è¯·æ±‚å¤„ç†ç±» ç»™è¿™ä¸ªTCPServer
 
     Then call the handle_request() or serve_forever() method of the server object to process one or many requests.
-    server.handle_request() #Ö»´¦ÀíÒ»¸öÇëÇó
-    server.serve_forever() #´¦Àí¶à¸öÒ»¸öÇëÇó£¬ÓÀÔ¶Ö´ĞĞ
+    server.handle_request() #åªå¤„ç†ä¸€ä¸ªè¯·æ±‚
+    server.serve_forever() #å¤„ç†å¤šä¸ªä¸€ä¸ªè¯·æ±‚ï¼Œæ°¸è¿œæ‰§è¡Œ
 
     Finally, call server_close() to close the socket.
-socketserveµÄ»ù±¾Ê¹ÓÃ
-Linux ·şÎñ¶Ë´úÂë
+socketserveçš„åŸºæœ¬ä½¿ç”¨
+Linux æœåŠ¡ç«¯ä»£ç 
 ```
 
 ```
-linux ¿Í»§¶Ë´úÂë
+linux å®¢æˆ·ç«¯ä»£ç 
 ```
 ```
-ÉÏÃæÕâ¸öÀı×ÓÄã»á·¢ÏÖ£¬ÒÀÈ»²»ÄÜÊµÏÖ¶à²¢·¢£¬¹ş¹ş£¬ÔÚserver¶Ë×öÒ»ÏÂ¸ü¸Ä¾Í¿ÉÒÔÁË
-°Ñ
-- `server = socketserver.TCPServer((HOST, PORT), MyTCPHandler)` ¸Ä³É
+ä¸Šé¢è¿™ä¸ªä¾‹å­ä½ ä¼šå‘ç°ï¼Œä¾ç„¶ä¸èƒ½å®ç°å¤šå¹¶å‘ï¼Œå“ˆå“ˆï¼Œåœ¨serverç«¯åšä¸€ä¸‹æ›´æ”¹å°±å¯ä»¥äº†
+æŠŠ
+- `server = socketserver.TCPServer((HOST, PORT), MyTCPHandler)` æ”¹æˆ
 - `server = socketserver.ThreadingTCPServer((HOST, PORT), MyTCPHandler)`
