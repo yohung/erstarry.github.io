@@ -82,6 +82,7 @@ socket.SOCK_SEQPACKET | 废弃了
     
 # 3、socket实例
   前面讲了那么多，到底怎么用呢？
+  
 socketserver.py
 ```
 import socket
@@ -119,6 +120,7 @@ SocketClient.py
 ![](https://github.com/erstarry/erstarry.github.io/blob/master/img/socket%E9%80%9A%E4%BF%A1.png)
 
 多次的数据交互怎么实现？
+
 socketserver端支持交互
 ```
 import socket
