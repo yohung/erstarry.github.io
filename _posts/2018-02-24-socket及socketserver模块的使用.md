@@ -12,8 +12,8 @@ tags:
 
 # 1、socket介绍
 ## 概念
-  socket通常也称作"套接字"，是一种计算机网络数据结构，相当于一个通信端点。在任何类型的通信开始之前，网络应用程序必须创建套接字。可以将它们比作电话插孔，没有它将无法进行通信。
-  如果一个套接字像一个电话插孔--允许通信的一些基础设施，那么主机名和端口号就像是区号和电话号码的组合。
+  *socket通常也称作"套接字"，是一种计算机网络数据结构，相当于一个通信端点。在任何类型的通信开始之前，网络应用程序必须创建套接字。可以将它们比作电话插孔，没有它将无法进行通信。   
+  如果一个套接字像一个电话插孔--允许通信的一些基础设施，那么主机名和端口号就像是区号和电话号码的组合。*
 ## Socket Families(地址簇)
 
 socket.AF_UNIX | unix  本机进程间通信 
@@ -346,7 +346,6 @@ while True:
 client.close()
 
 ```
-上面这个例子你会发现，依然不能实现多并发，哈哈，在server端做一下更改就可以了
-把
-`server = socketserver.TCPServer((HOST, PORT), MyTCPHandler)` 改成
+上面这个例子你会发现，依然不能实现多并发，哈哈，在server端做一下更改就可以了把  
+`server = socketserver.TCPServer((HOST, PORT), MyTCPHandler)` 改成  
 `server = socketserver.ThreadingTCPServer((HOST, PORT), MyTCPHandler)`
