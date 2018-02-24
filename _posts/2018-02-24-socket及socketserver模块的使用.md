@@ -11,7 +11,7 @@ tags:
 ---
 
 #1、socket介绍
-#概念
+###概念
 socket通常也称作"套接字"，是一种计算机网络数据结构，相当于一个通信端点。在任何类型的通信开始之前，网络应用程序必须创建套接字。可以将它们比作电话插孔，没有它将无法进行通信。
 如果一个套接字像一个电话插孔--允许通信的一些基础设施，那么主机名和端口号就像是区号和电话号码的组合。
 ```
@@ -37,7 +37,7 @@ socket.SOCK_RDM  #是一种可靠的UDP形式，即保证交付数据报但不�
 socket.SOCK_SEQPACKET #废弃了
 ```
 
-#2、socket参数介绍
+###2、socket参数介绍
 socket.socket（socket_family, socket_type,protocol=0）
 其中，socket_family是AF_UNIX或AF_INET（如前所述），socket_type是SOCK_STREAM或SOCK_DGRAM(也如前所述）。protocol通常省略，默认为0。
 所以，为了创建TCP/IP套接字，可以用下面的方式调用socket.socket()。
@@ -118,7 +118,7 @@ socket.sendfile(file, offset=0, count=None)
 
      发送文件 ，但目前多数情况下并无什么卵用。
      
-#3、socket实例
+###3、socket实例
 前面讲了那么多，到底怎么用呢？
 socketserver.py
 ```
@@ -234,7 +234,7 @@ while True:
 server.close()
 
 ```
-#4、socket实现多连接处理
+###4、socket实现多连接处理
 上面的代码虽然实现了服务端与客户端的多次交互，但是你会发现，如果客户端断开了， 服务器端也会跟着立刻断开，因为服务器只有一个while 循环，客户端一断开，服务端收不到数据 ，就会直接break跳出循环，然后程序就退出了，这显然不是我们想要的结果 ，我们想要的是，客户端如果断开了，我们这个服务端还可以为下一个客户端服务，在这里如何实现呢？
 - `conn,addr = server.accept()` 接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
 我们知道上面这句话负责等待并接收新连接，对于上面那个程序，其实在while break之后，只要让程序再次回到上面这句代码这，就可以让服务端继续接下一个客户啦。 
@@ -261,7 +261,7 @@ while True: #第一层loop
  
 server.close()
 ```
-#通过socket实现简单的ssh
+###通过socket实现简单的ssh
 光只是简单的发消息、收消息没意思，干点正事，可以做一个极简版的ssh，就是客户端连接上服务器后，让服务器执行命令，并返回结果给客户端。
 socket ssh服务端
 ```
@@ -324,7 +324,7 @@ while True:
 client.close()
 ```
 ![https://github.com/erstarry/erstarry.github.io/blob/master/img/socket%20ssh.png]
-###socketserver模块
+###6、socketserver模块
 The socketserver module simplifies the task of writing network servers.
 1、socket模块不能实现多并发    
 2、socketserver是对socket的再封装
