@@ -38,9 +38,7 @@ socket.SOCK_SEQPACKET | 废弃了
     > udpSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 * socket.socketpair([family[, type[, proto]]])
-
 * socket.create_connection(address[, timeout[, source_address]])
-
 * socket.getaddrinfo(host, port, family=0, type=0, proto=0, flags=0)
      > 获取要连接的对端主机地址 必会
 * s.bind(address)
@@ -201,8 +199,9 @@ server.close()
 ```
 # 4、socket实现多连接处理
   上面的代码虽然实现了服务端与客户端的多次交互，但是你会发现，如果客户端断开了， 服务器端也会跟着立刻断开，因为服务器只有一个while 循环，客户端一断开，服务端收不到数据 ，就会直接break跳出循环，然后程序就退出了，这显然不是我们想要的结果 ，我们想要的是，客户端如果断开了，我们这个服务端还可以为下一个客户端服务，在这里如何实现呢？
-`conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...`
->  我们知道上面这句话负责等待并接收新连接，对于上面那个程序，其实在while break之后，只要让程序再次回到上面这句代码这，就可以让服务端继续接下一个客户啦。 
+  
+* conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
+    > 我们知道上面这句话负责等待并接收新连接，对于上面那个程序，其实在while break之后，只要让程序再次回到上面这句代码这，就可以让服务端继续接下一个客户啦。 
 ```
 import socket
  
@@ -230,8 +229,6 @@ server.close()
   光只是简单的发消息、收消息没意思，干点正事，可以做一个极简版的ssh，就是客户端连接上服务器后，让服务器执行命令，并返回结果给客户端。
 socket ssh服务端
 ```
-#!/usr/bin/env python
-# coding=utf-8
 import socket
 import os,subprocess
 server = socket.socket()	#获得socket实例
@@ -263,8 +260,6 @@ server.close
 ```
 socket ssh客户端
 ```
-#!/usr/bin/env python
-# coding=utf-8
 import socket
 client = socket.socket()
 client.connect(("localhost",9998))
@@ -307,6 +302,7 @@ client.close()
 
     Finally, call server_close() to close the socket.
 socketserve的基本使用
+
 Linux 服务端代码
 ```
 #!/usr/bin/env python
