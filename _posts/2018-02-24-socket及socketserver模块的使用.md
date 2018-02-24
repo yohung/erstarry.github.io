@@ -30,6 +30,7 @@ socket.SOCK_RDM  | 是一种可靠的UDP形式，即保证交付数据报但不�
 socket.SOCK_SEQPACKET | 废弃了
 
 # 2、socket参数介绍
+```
 * socket.socket（socket_family, socket_type,protocol=0
     > 其中，socket_family是AF_UNIX或AF_INET（如前所述），socket_type是SOCK_STREAM或SOCK_DGRAM(也如前所述）。protocol通常省略，默认为0。
     > 所以，为了创建TCP/IP套接字，可以用下面的方式调用socket.socket()。
@@ -78,11 +79,11 @@ socket.SOCK_SEQPACKET | 废弃了
     > 套接字的文件描述符
 * socket.sendfile(file, offset=0, count=None)
     > 发送文件 ，但目前多数情况下并无什么卵用。
+```
 ---------------------------------------------------------------------------------------------------------------------------------------
     
 # 3、socket实例
-  前面讲了那么多，到底怎么用呢？
-  
+  前面讲了那么多，到底怎么用呢？  
 socketserver.py
 ```
 import socket
@@ -116,12 +117,13 @@ client.close()
 
 SocketClient.py
 ```
-上面的代码的有一个问题， 就是SocketServer.py运行起来后， 接收了一次客户端的data就退出了。。。， 但实际场景中，一个连接建立起来后，可能要进行多次往返的通信。
-![](https://github.com/erstarry/erstarry.github.io/blob/master/img/socket%E9%80%9A%E4%BF%A1.png)
+上面的代码的有一个问题， 就是SocketServer.py运行起来后， 接收了一次客户端的data就退出了。。。， 但实际场景中，一个连接建立起来后，可能要进行多次往返的通信。  
+![socket通信.png](http://upload-images.jianshu.io/upload_images/10781976-a395d44f4b9c4e37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-多次的数据交互怎么实现？
 
-socketserver端支持交互
+多次的数据交互怎么实现？  
+
+socketserver端支持交互  
 ```
 import socket
 
@@ -287,7 +289,7 @@ while True:
         print(received_data.decode())
 client.close()
 ```
-![https://github.com/erstarry/erstarry.github.io/blob/master/img/socket%20ssh.png]
+![socket ssh.png](http://upload-images.jianshu.io/upload_images/10781976-6984796d1c61bd5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # 6、socketserver模块
   The socketserver module simplifies the task of writing network servers.
