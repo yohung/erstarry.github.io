@@ -1,14 +1,14 @@
 ---
 layout:     post
-title:      python---网络编程
-subtitle:   socket和socketserver模块介绍
-date:       2018-2-24
-author:     CRC
-header-img: img/post-bg-universe.jpg
-catalog:    true
+title:      python---网络编程
+subtitle:   socket和socketserver模块介绍
+date:       2018-02-16
+author:     CRC
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
 tags:
-    - Python
-    - socket
+    - python
+    - socket
 ---
 
 # 1、socket介绍
