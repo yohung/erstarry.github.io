@@ -5,7 +5,7 @@ subtitle:   socket和socketserver模块介绍
 date:       2018-2-24
 author:     CRC
 header-img: img/post-bg-universe.jpg
-catalog: true
+catalog:    true
 tags:
     - Python 
     - Socket
