@@ -1,18 +1,18 @@
 # Site settings
 title: Hello World
-SEOTitle: 陈仁才的博客 | CRC Blog
+SEOTitle: 胡勇的博客 | Yohung Blog
 header-img: img/post-bg-desk.jpg
-email: 1170149581@qq.com
+email: 18166035355@163.com
 description: "Every failure is leading towards success."
-keyword: "CRC, CRC Blog, 陈仁才的博客, chenrencai, 陈仁才, 运维, python, 自动化"
-url: "http://erstarry.github.io"          # your host, for absolute URL
+keyword: "Yohung, Yohung Blog, 胡勇的博客, Yohung, 胡勇, 运维, python, 自动化"
+url: "http://yohung.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/erstarry/erstarry.github.io.git" # you code repository
+github_repo: "https://github.com/yohung/yohung.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/psb.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "Learn and live！"
+sidebar-avatar: /img/lbxx.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -20,9 +20,9 @@ sidebar-avatar: /img/psb.jpg      # use absolute URL, seeing it's used in both `
 RSS: false
 # weibo_username:
 zhihu_username:
-github_username: erstarry
+github_username: yohung
 facebook_username:
-jianshu_username: 4843363d81ad
+jianshu_username: 3c8445095486
 #twitter_username:
 
 
@@ -60,14 +60,7 @@ kramdown:
 # disqus_username: qiubaiying
 
 # Gitalk
-gitalk:
-  enable: true    #是否开启Gitalk评论
-  clientID: e44200b99c9f654a33c0   #生成的clientID
-  clientSecret: 063bf7056c1907280aacaee44f22b8f4cd70a03b  #同上
-  repo: erstarry.github.io    #仓库名称
-  owner: erstarry    #github用户名
-  admin: erstarry
-  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+#3c8445095486
 
 
 # 统计
@@ -77,8 +70,8 @@ gitalk:
 #ba_track_id: b50bf2b12b5338a1845e33832976fd68
 
 # Google Analytics
-ga_track_id: 'UA-113860059-1'            # Format: UA-xxxxxx-xx
-ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+#ga_track_id: 'UA-113860059-1'            # Format: UA-xxxxxx-xx
+#ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
@@ -100,7 +93,7 @@ service-worker: true
 friends: [
     {
         title: "简书·BY",
-        href: "https://www.jianshu.com/u/4843363d81ad"
+        href: "https://www.jianshu.com/users/3c8445095486"
     },{
         title: "Apple",
         href: "https://apple.com"
